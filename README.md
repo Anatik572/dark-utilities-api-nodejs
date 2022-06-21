@@ -11,3 +11,11 @@
  
 Installation :
   * To use it you need to have dark-utilities and install phin
+
+Get User Information
+
+```js
+darkutilities.getUserInfo().then(info => {
+    console.log(info);
+});
+```
