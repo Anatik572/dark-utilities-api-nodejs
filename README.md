@@ -3,14 +3,16 @@
    * -> Using the dark-utilities API in node js
    * -> Utilisation de l'API dark-utilities en node js
 
- Dependencies npm :
+ ### Dependencies npm :
   * [phin](https://www.npmjs.com/package/phin "lien")
 
- Require :
+ ### Require :
   * -> [Node-Js](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04-fr)
  
-Installation :
+### Installation :
   * To use it you need to have dark-utilities and install phin
+
+### Quick Demos
 
 Get User Information
 ```js
