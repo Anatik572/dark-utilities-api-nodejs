@@ -60,7 +60,7 @@ const darkutilities = {
         if (data == '') return reject('Data is empty');
             
         var res = await phin({
-            method: "GET",
+            method: "POST",
             url: 'https://' + hostname + '/api/v1/manager',
             parse: 'json',
             headers: header,
