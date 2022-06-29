@@ -20,8 +20,7 @@ const darkutilities = {
             parse: 'json',
             headers: header,
          });
-         
-        if (err) return err;
+        
         return res.statusCode
     },
 
@@ -33,7 +32,6 @@ const darkutilities = {
             headers: header,
          });
          
-        if (err) return err;
         return res.body
     },
     getServerList: function () {
@@ -44,7 +42,6 @@ const darkutilities = {
             headers: header,
          });
          
-        if (err) return err;
         return res.body
     },
     getServerInfo: function (server_digest) {
@@ -56,7 +53,6 @@ const darkutilities = {
             headers: header,
          });
          
-        if (err) return err;
         return res.body
     },
     sendAttack: function (action, data, selection) {
@@ -70,7 +66,6 @@ const darkutilities = {
             headers: header,
          });
          
-        if (err) return err;
         return res.body
     },
     getAttacks: function () {
@@ -81,7 +76,6 @@ const darkutilities = {
             headers: header,
          });
          
-        if (err) return err;
         return res.body
     }
 }
