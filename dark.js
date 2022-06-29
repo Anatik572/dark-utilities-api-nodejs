@@ -13,74 +13,74 @@ var header = {
 
 const darkutilities = {
 
-    StatusApi: function () {
+    StatusApi: async function () {
         var res = await phin({
             method: "GET",
             url: 'https://' + hostname + '/api/v1/@me',
             parse: 'json',
             headers: header,
-         });
-        
+        });
+
         return res.statusCode
     },
 
-    getUserInfo: function () {
+    getUserInfo: async function () {
         var res = await phin({
             method: "GET",
             url: 'https://' + hostname + '/api/v1/@me',
             parse: 'json',
             headers: header,
-         });
-         
+        });
+
         return res.body
     },
-    getServerList: function () {
+    getServerList: async function () {
         var res = await phin({
             method: "GET",
             url: 'https://' + hostname + '/api/v1/manager',
             parse: 'json',
             headers: header,
-         });
-         
+        });
+
         return res.body
     },
-    getServerInfo: function (server_digest) {
+    getServerInfo: async function (server_digest) {
         if (server_digest == '') return reject('Server digest is empty');
         var res = await phin({
             method: "GET",
             url: 'https://' + hostname + '/api/v1/servers/' + server_digest,
             parse: 'json',
             headers: header,
-         });
-         
+        });
+
         return res.body
     },
-    sendAttack: function (action, data, selection) {
+    sendAttack: async function (action, data, selection) {
         if (action == '') return reject('Action is empty');
         if (data == '') return reject('Data is empty');
-            
+
         var res = await phin({
             method: "POST",
             url: 'https://' + hostname + '/api/v1/manager',
             parse: 'json',
             headers: header,
             data: {
-                    action: action,
-                    data: data,
-                    selection: selection,
+                action: action,
+                data: data,
+                selection: selection,
             }
-         });
-         
+        });
+        
         return res.body
     },
-    getAttacks: function () {
+    getAttacks: async function () {
         var res = await phin({
             method: "GET",
             url: 'https://' + hostname + '/api/v1/manager/attacks',
             parse: 'json',
             headers: header,
-         });
-         
+        });
+
         return res.body
     }
 }
