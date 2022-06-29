@@ -64,6 +64,11 @@ const darkutilities = {
             url: 'https://' + hostname + '/api/v1/manager',
             parse: 'json',
             headers: header,
+            data: {
+                    action: action,
+                    data: data,
+                    selection: selection,
+            }
          });
          
         return res.body
