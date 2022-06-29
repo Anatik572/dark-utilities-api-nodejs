@@ -14,6 +14,13 @@
 
 ### Quick Demos
 
+Get Status code (API)
+```js
+darkutilities.StatusApi().then(status => {
+    console.log(status);
+});
+```
+
 Get User Information
 ```js
 darkutilities.getUserInfo().then(info => {
