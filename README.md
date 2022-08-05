@@ -75,3 +75,5 @@ darkutilities.getAttacks().then(attacks => {
     console.log(attacks);
 });
 ```
+
+This script was made for training purposes
