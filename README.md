@@ -77,3 +77,4 @@ darkutilities.getAttacks().then(attacks => {
 ```
 
 This script was made for training purposes
+Note to kiddies: Please do not affiliate me with dark-utilities 
