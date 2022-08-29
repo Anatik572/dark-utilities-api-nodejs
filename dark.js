@@ -2,7 +2,7 @@
 var phin = require('phin');
 
 /* Configuration */
-var hostname = "dark-utilities.me";
+var hostname = "dark-utilities.com";
 var apikey = "";
 var header = {
     'Cache-Control': 'max-age=0',
